@@ -1,1 +1,181 @@
 
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Student Registration Form</title>
+<head>
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: black;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password],input[type=number],input[type=email] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus,input[type=number]:focus,input[type=email]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for the submit button */
+.registerbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity: 1;
+}
+
+/* Add a blue text color to links */
+a {
+  color: dodgerblue;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+
+
+#snackbar {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+  }
+  
+  #snackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.20s, fadeout 0.20s 2.20s;
+    animation: fadein 0.20s, fadeout 0.20s 2.20s;
+  }
+  
+  @-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;} 
+    to {bottom: 30px; opacity: 1;}
+  }
+  
+  @keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+  }
+  
+  @-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;} 
+    to {bottom: 0; opacity: 0;}
+  }
+  
+  @keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+  }
+
+</style>
+</head>
+<body>
+
+<form method="POST">
+  <div class="container">
+    <center><h1 style="color: brown;">Student Registration Form</h1></center>
+    
+    <hr>
+  
+    <br>
+    
+    {% csrf_token %}
+    <label for="first">First_Name</label>
+    <input type="text" name="first" id="first" placeholder="Enter the first">
+    <br>
+    <label for="last">Last_Name</label>
+    <input type="text" name="last" id="last" placeholder="Enter the last">
+    <br>
+    <label for="father_name">Father_Name</label>
+    <input type="text" name="father_name" id="father_name" placeholder="father_name">
+    <br>
+    <label for="mather_name">Mather_Name</label>
+    <input type="text" name="mather_name" id="mather_name" placeholder="Enter the mather_name">
+    <br>
+    <label for="email">Email</label><br>
+    <input type="email" name="email" id="email" placeholder="Enter the email">
+    <br>
+    <br>
+    <label for="address">Address</label>
+    <input type="text" name="address" id="address" placeholder="Enter the address">
+    <br>
+    <label for="city">City</label>
+    <input type="text" name="city" id="city" placeholder="Enter the city">
+    <br>
+    <label for="number">Mobail Number</label><br>
+    <input type="number" name="number" id="number" placeholder="Enter the number">
+    <br><br>
+    <label for="number1"> Aadhr Number</label><br>
+    <input type="number" name="number1" id="number1" placeholder="Enter the number">
+    <br>
+    <br>
+    <br>
+    <center><button onclick="myFunction()"><input type="submit" value="Submit" class="registerbtn"></button></center>
+
+<div id="snackbar">Registratin Sucsfull</div>
+    <!--<input type="submit" value="Submit" class="registerbtn">-->
+    
+    </form>
+</div>
+  
+  
+</form>
+
+
+
+<script>
+function myFunction() {
+  var x = document.getElementById("snackbar");
+  x.className = "show";
+  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+}
+</script>
+
+
+</body>
+</html>
